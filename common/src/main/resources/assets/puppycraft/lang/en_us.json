@@ -1,0 +1,69 @@
+{
+  "effect.diaperpants.full": "Full",
+
+  "trinkets.slot.legs.diaper": "Diaper",
+  "trinkets.slot.head.mouth": "Mouth",
+
+  "itemgroup.puppycraft.diapers": "Diapers",
+
+  "item.puppycraft.cheapdiaper": "Paper Diaper",
+  "item.puppycraft.medicaldiaper": "Diaper",
+  "item.puppycraft.megamaxdiaper": "Megamax Diaper",
+  "item.puppycraft.subspacediaper": "Subspace Diaper",
+  "item.puppycraft.pullupdiaper": "Pullup Diaper",
+  "item.puppycraft.bunnyhoppsdiaper": "BunnyHopps Diaper",
+
+  "item.puppycraft.quesadilla": "Quesadilla",
+
+  "item.puppycraft.diapersap": "Super Absorbent Polymer",
+  "item.puppycraft.diapercore": "Heavy Duty Diaper Core",
+  "item.puppycraft.cheapdiapercore": "Absorbent Diaper Core",
+  "item.puppycraft.cheapdiapersap": "Absorbent Polymer",
+  "item.puppycraft.woodpulp": "Pulp",
+  "item.puppycraft.threediapercore": "Triple Diaper Core",
+  "item.puppycraft.clothbacksheet": "Cloth Backsheet",
+  "item.puppycraft.youth_bucket": "Bucket of FOY water",
+
+  "item.puppycraft.pacifier": "Pacifier",
+
+  "item.puppycraft.empty_baby_bottle": "Empty Baby Bottle",
+  "item.puppycraft.baby_bottle_milk": "Baby Bottle of Milk",
+  "item.puppycraft.baby_bottle_youth": "Bottle of FOY water",
+
+  "item.puppycraft.diaperbag.empty": "Empty diaper bag",
+  "item.puppycraft.diaperbag.generic": "Empty diaper bag",
+  "item.puppycraft.diaperbag.phighting": "Bag de Phighting Panales",
+  "item.puppycraft.diaperbag.bunnyhopps": "Bag o' Bunnyhopps",
+  "item.puppycraft.diaperbag.medical": "Bag o' diapers",
+  "item.puppycraft.diaperbag.mega": "Bag o' MegaMaxes",
+  "item.puppycraft.diaperbag.pullup": "Package of Pull-Ups",
+  "item.puppycraft.diaperbag.cheap": "Bag of cheap diapers",
+
+  "item.puppycraft.raw_salt": "Salt Chunk",
+  "item.puppycraft.salt": "Salt",
+  "item.puppycraft.salt_silly_text": "Also known as sodium chloride :3",
+
+  "block.puppycraft.puppy_pastel_blue": "Cloudy Wallpaper",
+  "block.puppycraft.puppy_pastel_pink": "Lovely Wallpaper",
+  "block.puppycraft.diaperassembler": "Diaper Press",
+  "block.puppycraft.puppy_pad": "Puppy Pad",
+
+  "block.puppycraft.diaper_bag": "Empty Diaper Bag",
+
+  "puppycraft.diaperassembler.storagename": "Diaper Assembler Machine",
+
+  "stat.minecraft.bedwetter": "Times peed the bed",
+  "stat.minecraft.bladderfailstat": "Times peed pants",
+  "stat.minecraft.poopedpants": "Times pooped pants",
+  "stat.minecraft.saggingdiaper": "Time spent in full diapers",
+
+  "puppycraft.diaper_soiling": "Pooping Pants",
+
+  "puppycraft.configuration.urinemeter": "Legacy Urine Bar",
+  "puppycraft.configuration.deminuo": "Regression Mechanics",
+
+  "puppycraft.puppy_pad.tooltip.joining": "Place pads next to eachother to spread it's use!",
+  "puppycraft.puppy_pad.tooltip.interaction": "Crouch and use to use puppy pad",
+  "puppycraft.puppy_pad.out_of_reach": "Can only use puppy pad when standing on top of it.",
+  "block.puppycraft.seasalt": "Seasalt"
+}

@@ -1,0 +1,47 @@
+{
+  "effect.diaperpants.full": "pañal completo",
+
+  "itemgroup.puppycraft.diapers": "Pañales",
+
+  "item.puppycraft.cheapdiaper": "Pañal de papel",
+  "item.puppycraft.medicaldiaper": "Pañal",
+  "item.puppycraft.megamaxdiaper": "Pañal Megamax",
+  "item.puppycraft.subspacediaper": "Pañal Subspace",
+  "item.puppycraft.pullupdiaper": "Tire del Pañal",
+  "item.puppycraft.bunnyhoppsdiaper": "Pañal BunnyHopps",
+
+  "item.puppycraft.quesadilla": "Quesadilla",
+
+  "item.puppycraft.diapersap": "Polímero súper absorbente",
+  "item.puppycraft.diapercore": "Heavy Duty Diaper Core",
+  "item.puppycraft.cheapdiapercore": "Absorbent Diaper Core",
+  "item.puppycraft.cheapdiapersap": "Absorbent Polymer",
+  "item.puppycraft.woodpulp": "Pulp",
+  "item.puppycraft.threediapercore": "Triple Diaper Core",
+
+  "item.puppycraft.pacifier": "Pacifier",
+
+  "item.puppycraft.diaperbag.generic": "Empty diaper bag",
+  "item.puppycraft.diaperbag.phighting": "Bag de Phighting Panales",
+  "item.puppycraft.diaperbag.bunnyhopps": "Bag o' Bunnyhopps",
+  "item.puppycraft.diaperbag.medical": "Bag o' diapers",
+  "item.puppycraft.diaperbag.mega": "Bag o' MegaMaxes",
+  "item.puppycraft.diaperbag.pullup": "Package of Pull-Ups",
+  "item.puppycraft.diaperbag.cheap": "Bag of cheap diapers",
+
+  "block.puppycraft.puppy_pastel_blue": "Cloudy Wallpaper",
+  "block.puppycraft.puppy_pastel_pink": "Lovely Wallpaper",
+  "block.puppycraft.diaperassembler": "Diaper Press",
+  "block.puppycraft.puppy_pad": "Puppy Pad",
+
+  "block.puppycraft.diaper_bag": "Empty Diaper Bag",
+
+  "puppycraft.diaperassembler.storagename": "Diaper Assembler Machine",
+
+  "stat.minecraft.bedwetter": "Los tiempos orinaron en la cama",
+  "stat.minecraft.bladderfailstat": "Pantalones Times Peed",
+  "stat.minecraft.poopedpants": "El tiempo hizo caca en los pantalones",
+  "stat.minecraft.saggingdiaper": "Tiempo pasado con el pañal lleno puesto",
+
+  "puppycraft.diaper_soiling": "Pantalones sucios"
+}
