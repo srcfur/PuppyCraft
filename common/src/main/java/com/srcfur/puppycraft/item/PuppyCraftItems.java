@@ -20,6 +20,8 @@ import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
+import static com.srcfur.puppycraft.PuppyCraftCommon.*;
+
 public class PuppyCraftItems {
     //Generics
     public static ItemHelper<Item> BabyBottle = simple("baby_bottle");
@@ -46,8 +48,12 @@ public class PuppyCraftItems {
     public static ItemHelper<Item> WoodPulp = simple("woodpulp");
 
     //Diapers
-    public static ItemHelper<DiaperItem> MedicalDiaper = diaper("medicaldiaper", "medical", DiaperFamilies.MEDICAL, 100);
-    public static ItemHelper<DiaperItem> BunnyHoppsDiaper = diaper("bunnyhoppsdiaper", "bunnyhopps", DiaperFamilies.BUNNYHOPPS, 300);
+    public static ItemHelper<DiaperItem> BunnyHoppsDiaper = diaper("bunnyhoppsdiaper", "bunnyhopps", DiaperFamilies.BUNNYHOPPS, DiaperCapacityMega);
+    public static ItemHelper<DiaperItem> CheapDiaper = diaper("cheapdiaper", "cheap", DiaperFamilies.CHEAP, DiaperCapacityCheap);
+    public static ItemHelper<DiaperItem> MedicalDiaper = diaper("medicaldiaper", "medical", DiaperFamilies.MEDICAL, DiaperCapacityMedical);
+    public static ItemHelper<DiaperItem> MegaMaxDiaper = diaper("megamaxdiaper", "megamax", DiaperFamilies.MEGAMAX, DiaperCapacityMega);
+    public static ItemHelper<DiaperItem> PullUpDiaper = diaper("pullupdiaper", "pullup", DiaperFamilies.PULLUPS, 2 * (DiaperCapacityMedical / 3));
+    public static ItemHelper<DiaperItem> SubspaceDiaper = diaper("subspacediaper", "subspace", DiaperFamilies.PHIGHTING, DiaperCapacityMega);
 
     private static ItemHelper<Item> simple(String name){
         return createHelper(name, ()->new Item(ezKey(name)));

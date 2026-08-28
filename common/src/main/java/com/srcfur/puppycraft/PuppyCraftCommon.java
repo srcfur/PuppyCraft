@@ -24,6 +24,10 @@ public class PuppyCraftCommon {
     public static int DefaultMaturity = 18000;
     public static int MinimumMaturity = 0;
 
+    public static int DiaperCapacityCheap = 150;
+    public static int DiaperCapacityMedical = 350;
+    public static int DiaperCapacityMega = 750;
+
     public static PuppyCraftAPI API = Services.load(PuppyCraftAPI.class);
 
     // The loader specific projects are able to import and use any code from the common project. This allows you to
@@ -47,8 +51,11 @@ public class PuppyCraftCommon {
     }
     /// Only call on client!
     public static void registerTrinketRenderers(){
-        TrinketRendererRegistry.registerRenderer(PuppyCraftItems.MedicalDiaper.get(), new DiaperRenderer());
         TrinketRendererRegistry.registerRenderer(PuppyCraftItems.BunnyHoppsDiaper.get(), new DiaperRenderer());
-
+        TrinketRendererRegistry.registerRenderer(PuppyCraftItems.CheapDiaper.get(), new DiaperRenderer());
+        TrinketRendererRegistry.registerRenderer(PuppyCraftItems.MedicalDiaper.get(), new DiaperRenderer());
+        TrinketRendererRegistry.registerRenderer(PuppyCraftItems.MegaMaxDiaper.get(), new DiaperRenderer());
+        TrinketRendererRegistry.registerRenderer(PuppyCraftItems.PullUpDiaper.get(), new DiaperRenderer());
+        TrinketRendererRegistry.registerRenderer(PuppyCraftItems.SubspaceDiaper.get(), new DiaperRenderer());
     }
 }
