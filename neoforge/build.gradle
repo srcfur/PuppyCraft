@@ -23,7 +23,8 @@ repositories{
 dependencies {
     implementation("com.srcfur:badhygiene-neoforge:26.1.2-2.0.0")
     implementation("com.geckolib:geckolib-neoforge:${geckolib_version}")
-    implementation "maven.modrinth:vvuO3ImH:dRnRThvD"
+    implementation "maven.modrinth:XaT8sLP6:gIMhLIZ0"
+    runtimeOnly "maven.modrinth:2MgfuPip:WQGs48qF"
 }
 
 neoForge {

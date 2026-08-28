@@ -1,7 +1,13 @@
 package com.srcfur.puppycraft;
 
+import com.srcfur.puppycraft.item.PuppyCraftItems;
+import com.srcfur.puppycraft.item.diaper.DiaperPredicate;
+import com.srcfur.puppycraft.item.diaper.DiaperRenderer;
 import com.srcfur.puppycraft.platform.Services;
+import eu.pb4.trinkets.api.TrinketsApi;
+import eu.pb4.trinkets.api.client.TrinketRendererRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
@@ -27,5 +33,12 @@ public class PuppyCraftCommon {
 
             Constants.LOG.info("Hello to examplemod");
         }
+        TrinketsApi.registerTrinketPredicate(Identifier.fromNamespaceAndPath(Constants.MOD_ID, "isdiaper"), new DiaperPredicate());
+    }
+    /// Only call on client!
+    public static void registerTrinketRenderers(){
+        TrinketRendererRegistry.registerRenderer(PuppyCraftItems.MedicalDiaper.get(), new DiaperRenderer());
+        TrinketRendererRegistry.registerRenderer(PuppyCraftItems.BunnyHoppsDiaper.get(), new DiaperRenderer());
+
     }
 }

@@ -7,6 +7,18 @@ repositories{
     flatDir {
         dir '../libs'
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        // forRepositories(fg.repository) // Uncomment when using ForgeGradle
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 neoForge {
@@ -28,6 +40,7 @@ dependencies {
     compileOnly(annotationProcessor('io.github.llamalad7:mixinextras-common:0.5.3'))
     implementation("com.srcfur:badhygiene-common:26.1.2-2.0.0")
     implementation("com.geckolib:geckolib-common:${geckolib_version}")
+    implementation "maven.modrinth:XaT8sLP6:gIMhLIZ0"
 }
 
 configurations {

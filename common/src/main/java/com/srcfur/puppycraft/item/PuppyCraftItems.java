@@ -1,0 +1,55 @@
+package com.srcfur.puppycraft.item;
+
+import com.srcfur.puppycraft.Constants;
+import com.srcfur.puppycraft.block.PuppyCraftBlocks;
+import com.srcfur.puppycraft.item.diaper.DiaperItem;
+import com.srcfur.puppycraft.utility.BlockHelper;
+import com.srcfur.puppycraft.utility.ItemHelper;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+
+import java.util.function.Supplier;
+
+public class PuppyCraftItems {
+    //Generics
+    public static ItemHelper<Item> BabyBottle = simple("baby_bottle");
+    public static ItemHelper<Item> BabyBottleOfMilk = simple("milk_baby_bottle");
+    public static ItemHelper<Item> BabyBottleOfYouth = simple("youth_baby_bottle");
+    public static ItemHelper<Item> CheapAbsorbentPolymer = simple("cheapdiapersap");
+    public static ItemHelper<Item> CheapDiaperCore = simple("cheapdiapercore");
+    public static ItemHelper<Item> DiaperBackSheet = simple("clothbacksheet");
+    public static ItemHelper<BlockItem> DiaperBag = block("diaper_bag", PuppyCraftBlocks.DiaperBag);
+    public static ItemHelper<Item> DiaperTrash = simple("balled_diaper");
+    public static ItemHelper<Item> NormalDiaperCore = simple("diapercore");
+    public static ItemHelper<Item> PremiumDiaperCore = simple("threediapercore");
+    public static ItemHelper<Item> PuppyPad = simple("puppy_pad");
+    public static ItemHelper<Item> RawSalt = simple("raw_salt");
+    public static ItemHelper<Item> Salt = simple("salt");
+    public static ItemHelper<BlockItem> SeaSalt = block("seasalt", PuppyCraftBlocks.RawSalt);
+    public static ItemHelper<Item> SuperAbsorbentPolymer = simple("diapersap");
+    public static ItemHelper<Item> WoodPulp = simple("woodpulp");
+
+    //Diapers
+    public static ItemHelper<DiaperItem> MedicalDiaper = diaper("medicaldiaper", "medical", 100);
+    public static ItemHelper<DiaperItem> BunnyHoppsDiaper = diaper("bunnyhoppsdiaper", "bunnyhopps", 300);
+
+    private static ItemHelper<Item> simple(String name){
+        return createHelper(name, ()->new Item(ezKey(name)));
+    }
+    private static ItemHelper<DiaperItem> diaper(String name, String texture, int health) { return createHelper(name,
+            ()-> new DiaperItem(texture, ezKey(name).component(DataComponents.MAX_DAMAGE, health).stacksTo(1))); }
+    private static ItemHelper<BlockItem> block(String name, BlockHelper<? extends Block> blockHelper){
+        return createHelper(name, ()->new BlockItem(blockHelper.get(), ezKey(name)));
+    }
+    private static Item.Properties ezKey(String name){
+        return new Item.Properties().setId(ResourceKey.create(BuiltInRegistries.ITEM.key(), Identifier.fromNamespaceAndPath(Constants.MOD_ID, name)));
+    }
+    private static <T extends Item>ItemHelper<T> createHelper(String name, Supplier<T> supplier){
+        return new ItemHelper<T>(Identifier.fromNamespaceAndPath(Constants.MOD_ID, name), supplier);
+    }
+}

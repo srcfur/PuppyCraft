@@ -1,0 +1,8 @@
+{
+  "icon": "puppycraft:container/slots/diaper",
+  "order": -1024,
+  "drop_rule": "default",
+  "validator_predicates": [
+    "puppycraft:isdiaper"
+  ]
+}
