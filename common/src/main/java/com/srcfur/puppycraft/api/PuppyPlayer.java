@@ -70,6 +70,6 @@ public abstract class PuppyPlayer {
         if(score > 0 || getMaturity() > 10000)return;
         int inconduration = 1200;
         inconduration += (10 - getMaturity() / 1000) * 1200;
-        player.addEffect(new MobEffectInstance(Holder.direct(BadHygieneEffects.Incontinence), inconduration));
+        player.addEffect(new MobEffectInstance(BadHygieneEffects.Incontinence, inconduration));
     }
 }

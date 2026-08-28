@@ -69,7 +69,7 @@ public class PuppyPadBlock extends CarpetBlock {
                 hygienePlayer.setBladder(0);
                 //Won't drop but won't go past gained continence either!
                 hygienePlayer.setContinence(Math.max(hygienePlayer.getContinence() + 3, Math.max(PuppyCraftCommon.MaximumGainedContinence, hygienePlayer.getContinence())));
-                player.addEffect(new MobEffectInstance(Holder.direct(BadHygieneEffects.Incontinence), 6000, 0));
+                player.addEffect(new MobEffectInstance(BadHygieneEffects.Incontinence, 6000, 0));
                 return InteractionResult.CONSUME;
             }
             else
