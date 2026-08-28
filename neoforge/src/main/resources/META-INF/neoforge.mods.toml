@@ -31,7 +31,7 @@ side = "BOTH"
 [[dependencies.${mod_id}]]
 modId = "badhygiene"
 type="required" #mandatory (Can be one of "required", "optional", "incompatible" or "discouraged")
-versionRange = "${bad_hygiene_version}"
+versionRange = "[${bad_hygiene_version},]"
 ordering = "BEFORE"
 side = "BOTH"
 [[dependencies.${mod_id}]]
