@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.Optional;
 
-public class PuppyPlayer {
+public abstract class PuppyPlayer {
     private Player player;
     public PuppyPlayer(Player plr){
         player = plr;

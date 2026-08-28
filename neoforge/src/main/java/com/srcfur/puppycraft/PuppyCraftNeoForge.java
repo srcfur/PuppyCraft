@@ -6,6 +6,7 @@ import com.srcfur.badhygiene.event.PlayerSoilSelfEvent;
 import com.srcfur.puppycraft.api.PuppyPlayer;
 import com.srcfur.puppycraft.block.PuppyCraftBlocks;
 import com.srcfur.puppycraft.block.entity.PuppyCraftBlockEntities;
+import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
 import com.srcfur.puppycraft.item.PuppyCraftItems;
 import com.srcfur.puppycraft.utility.*;
 import net.minecraft.core.BlockPos;
@@ -22,7 +23,10 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 import java.util.HashSet;
@@ -32,7 +36,7 @@ import java.util.stream.Collectors;
 
 @Mod(Constants.MOD_ID)
 public class PuppyCraftNeoForge {
-
+    public static FluidType Youth_FluidType;
     public PuppyCraftNeoForge(IEventBus eventBus) {
 
         // This method is invoked by the NeoForge mod loader when it is ready
@@ -43,8 +47,8 @@ public class PuppyCraftNeoForge {
         Constants.LOG.info("Hello NeoForge world!");
         PuppyCraftCommon.init();
         eventBus.addListener(PuppyCraftNeoForge::registerHelpers);
-        NeoForge.EVENT_BUS.addListener(PlayerPeeSelfEvent.class, event -> event.setCanceled(new PuppyPlayer(event.getEntity()).peeSelf()));
-        NeoForge.EVENT_BUS.addListener(PlayerSoilSelfEvent.class, event -> event.setCanceled(new PuppyPlayer(event.getEntity()).poopSelf()));
+        NeoForge.EVENT_BUS.addListener(PlayerPeeSelfEvent.class, event -> event.setCanceled(PuppyCraftCommon.API.getPuppyPlayer(event.getEntity()).peeSelf()));
+        NeoForge.EVENT_BUS.addListener(PlayerSoilSelfEvent.class, event -> event.setCanceled(PuppyCraftCommon.API.getPuppyPlayer(event.getEntity()).poopSelf()));
     }
     private static BlockEntityProperties<BlockEntity> registerBlockEntity(Identifier id, Supplier<BlockEntityProperties<BlockEntity>> type){
         BlockEntityProperties<BlockEntity> props = type.get();
@@ -75,6 +79,20 @@ public class PuppyCraftNeoForge {
                 BuiltInRegistries.BLOCK_ENTITY_TYPE.key(),
                 _ -> {
                     GenericHelper.registerClass(PuppyCraftBlockEntities.class, BlockEntityHelper.class, PuppyCraftNeoForge::registerBlockEntity);
+                }
+        );
+        event.register(
+                BuiltInRegistries.FLUID.key(),
+                _ -> {
+                    GenericHelper.registerClass(PuppyCraftFluids.class, FluidHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.FLUID));
+                }
+        );
+        event.register(
+                NeoForgeRegistries.FLUID_TYPES.key(),
+                _ -> {
+                    Youth_FluidType = Registry.register(NeoForgeRegistries.FLUID_TYPES,
+                            Identifier.fromNamespaceAndPath(Constants.MOD_ID, "youth"),
+                            new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false)));
                 }
         );
     }

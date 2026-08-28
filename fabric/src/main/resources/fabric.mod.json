@@ -17,6 +17,12 @@
     "entrypoints": {
         "main": [
             "com.srcfur.puppycraft.PuppyCraftFabric"
+        ],
+        "client": [
+            "com.srcfur.puppycraft.PuppyCraftClientFabric"
+        ],
+        "fabric-datagen": [
+            "com.srcfur.puppycraft.datagen.PuppyCraftDatagen"
         ]
     },
     "mixins": [

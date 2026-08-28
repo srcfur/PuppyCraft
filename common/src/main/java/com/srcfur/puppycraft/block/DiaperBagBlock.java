@@ -61,9 +61,10 @@ public class DiaperBagBlock extends BaseEntityBlock {
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if(stack.getItem().getClass() == DiaperItem.class){
-            if(!level.isClientSide()){
-
-            }
+            DiaperBagEntity ent = (DiaperBagEntity) level.getBlockEntity(pos);
+            if(ent == null || ent.getFamily() != ((DiaperItem)stack.getItem()).Family && !ent.isEmpty() || ent.getNextAvailableSlot() == -1)
+                return InteractionResult.FAIL;
+            ent.setItem(ent.getNextAvailableSlot(), stack.copy());
             player.setItemInHand(hand, ItemStack.EMPTY);
             return InteractionResult.CONSUME;
         }
@@ -73,7 +74,10 @@ public class DiaperBagBlock extends BaseEntityBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if(player.getMainHandItem().isEmpty()){
-
+            DiaperBagEntity ent = (DiaperBagEntity) level.getBlockEntity(pos);
+            if(ent == null || ent.isEmpty())
+                return InteractionResult.FAIL;
+            player.setItemInHand(player.getUsedItemHand(), ent.pullFirst());
             return InteractionResult.CONSUME;
         }
         return super.useWithoutItem(state, level, pos, player, hitResult);
