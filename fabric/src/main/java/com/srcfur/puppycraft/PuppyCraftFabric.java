@@ -14,18 +14,24 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -58,6 +64,23 @@ public class PuppyCraftFabric implements ModInitializer {
 
         PlayerPeeSelf.EVENT.register(event-> PuppyCraftCommon.API.getPuppyPlayer(event).peeSelf() ? InteractionResult.CONSUME : InteractionResult.PASS);
         PlayerPoopSelf.EVENT.register(event-> PuppyCraftCommon.API.getPuppyPlayer(event).poopSelf() ? InteractionResult.CONSUME : InteractionResult.PASS);
+
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, Identifier.fromNamespaceAndPath(Constants.MOD_ID, "puppycraft"), FabricCreativeModeTab.builder()
+                .icon(() -> new ItemStack(PuppyCraftItems.MegaMaxDiaper.get()))
+                .title(Component.literal("Puppy Craft Items"))
+                .displayItems((params, output) -> {
+                    Arrays.stream(PuppyCraftItems.class.getFields()).filter(x -> x.getType() == ItemHelper.class).forEach(field -> {
+                        try {
+                            ItemHelper<? extends Item> helper = (ItemHelper<?extends Item>) field.get(null);
+                            Item item = helper.get();
+                            if(item == PuppyCraftItems.LaxativeCookie.get() || item == PuppyCraftItems.DiaperTrash.get()) return;
+                            output.accept(item);
+                        } catch (IllegalAccessException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                })
+                .build());
     }
     private static BlockEntityProperties<BlockEntity> registerBlockEntity(Identifier id, Supplier<BlockEntityProperties<BlockEntity>> type){
         BlockEntityProperties<BlockEntity> props = type.get();

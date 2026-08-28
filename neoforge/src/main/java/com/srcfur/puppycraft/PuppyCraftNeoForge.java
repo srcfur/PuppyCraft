@@ -16,6 +16,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -26,6 +28,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegisterEvent;
@@ -50,6 +53,7 @@ public class PuppyCraftNeoForge {
         eventBus.addListener(PuppyCraftNeoForge::registerHelpers);
         NeoForge.EVENT_BUS.addListener(PlayerPeeSelfEvent.class, event -> event.setCanceled(PuppyCraftCommon.API.getPuppyPlayer(event.getEntity()).peeSelf()));
         NeoForge.EVENT_BUS.addListener(PlayerSoilSelfEvent.class, event -> event.setCanceled(PuppyCraftCommon.API.getPuppyPlayer(event.getEntity()).poopSelf()));
+        eventBus.addListener(PuppyCraftNeoForge::buildContentsCreative);
     }
     private static BlockEntityProperties<BlockEntity> registerBlockEntity(Identifier id, Supplier<BlockEntityProperties<BlockEntity>> type){
         BlockEntityProperties<BlockEntity> props = type.get();
@@ -60,6 +64,28 @@ public class PuppyCraftNeoForge {
                     new HashSet<>(props.blocks)
         )));
         return props;
+    }
+    public static void buildContentsCreative(BuildCreativeModeTabContentsEvent event) {
+        // Is this the tab we want to add to?
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(PuppyCraftItems.RawSalt.get());
+            event.accept(PuppyCraftItems.Salt.get());
+            event.accept(PuppyCraftItems.CheapAbsorbentPolymer.get());
+            event.accept(PuppyCraftItems.SuperAbsorbentPolymer.get());
+            event.accept(PuppyCraftItems.DiaperBackSheet.get());
+        }
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS){
+            event.accept(PuppyCraftItems.BabyBottle.get());
+            event.accept(PuppyCraftItems.BabyBottleOfMilk.get());
+            event.accept(PuppyCraftItems.BabyBottleOfYouth.get());
+        }
+        if(event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS){
+            event.accept(PuppyCraftItems.DiaperBag.get());
+            event.accept(PuppyCraftItems.PuppyPad.get());
+        }
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(PuppyCraftItems.SeaSalt.get());
+        }
     }
     @SuppressWarnings("unchecked")
     public static void registerHelpers(RegisterEvent event){
@@ -101,6 +127,23 @@ public class PuppyCraftNeoForge {
                 BuiltInRegistries.DATA_COMPONENT_TYPE.key(),
                 _->{
                     GenericHelper.registerClass(PuppyCraftDataComponents.class, DataComponentHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.DATA_COMPONENT_TYPE));
+                }
+        );
+        event.register(
+                BuiltInRegistries.CREATIVE_MODE_TAB.key(),
+                registry ->{
+                    registry.register(Identifier.fromNamespaceAndPath(Constants.MOD_ID, "diapers"), CreativeModeTab.builder()
+                                    .title(Component.literal("Diapers"))
+                                    .icon(()->new ItemStack(PuppyCraftItems.MedicalDiaper.get()))
+                                    .displayItems((params, out) -> {
+                                        out.accept(PuppyCraftItems.CheapDiaper.get());
+                                        out.accept(PuppyCraftItems.MedicalDiaper.get());
+                                        out.accept(PuppyCraftItems.PullUpDiaper.get());
+                                        out.accept(PuppyCraftItems.MegaMaxDiaper.get());
+                                        out.accept(PuppyCraftItems.SubspaceDiaper.get());
+                                        out.accept(PuppyCraftItems.BunnyHoppsDiaper.get());
+                                    })
+                            .build());
                 }
         );
     }
