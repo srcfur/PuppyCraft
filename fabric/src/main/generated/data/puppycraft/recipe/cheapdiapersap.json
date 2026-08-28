@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "puppycraft:salt",
+    "puppycraft:salt",
+    "puppycraft:salt",
+    "puppycraft:salt"
+  ],
+  "result": {
+    "id": "puppycraft:cheapdiapersap"
+  }
+}

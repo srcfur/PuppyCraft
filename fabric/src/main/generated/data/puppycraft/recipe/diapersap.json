@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "puppycraft:cheapdiapersap",
+    "puppycraft:cheapdiapersap",
+    "puppycraft:woodpulp",
+    "puppycraft:woodpulp"
+  ],
+  "result": {
+    "id": "puppycraft:diapersap"
+  }
+}

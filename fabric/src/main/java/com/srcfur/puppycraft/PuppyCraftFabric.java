@@ -6,18 +6,24 @@ import com.srcfur.puppycraft.attachment.PuppyCraftAttachments;
 import com.srcfur.puppycraft.block.PuppyCraftBlocks;
 import com.srcfur.puppycraft.block.entity.PuppyCraftBlockEntities;
 import com.srcfur.puppycraft.datacomponent.PuppyCraftDataComponents;
+import com.srcfur.puppycraft.datagen.worldgen.ModPlacedFeatures;
 import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
 import com.srcfur.puppycraft.item.PuppyCraftItems;
 import com.srcfur.puppycraft.utility.*;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModification;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 import java.lang.reflect.Array;
 import java.util.HashSet;
@@ -43,6 +49,12 @@ public class PuppyCraftFabric implements ModInitializer {
         GenericHelper.registerClass(PuppyCraftBlocks.class, BlockHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.BLOCK));
         GenericHelper.registerClass(PuppyCraftBlockEntities.class, BlockEntityHelper.class, PuppyCraftFabric::registerBlockEntity);
         GenericHelper.registerClass(PuppyCraftItems.class, ItemHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.ITEM));
+
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(BiomeTags.IS_OCEAN),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ModPlacedFeatures.SEA_SALT_PLACED
+        );
 
         PlayerPeeSelf.EVENT.register(event-> PuppyCraftCommon.API.getPuppyPlayer(event).peeSelf() ? InteractionResult.CONSUME : InteractionResult.PASS);
         PlayerPoopSelf.EVENT.register(event-> PuppyCraftCommon.API.getPuppyPlayer(event).poopSelf() ? InteractionResult.CONSUME : InteractionResult.PASS);

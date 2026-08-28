@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "puppycraft:diapersap",
+    "P": "minecraft:paper"
+  },
+  "pattern": [
+    "PCP",
+    "PCP",
+    "PCP"
+  ],
+  "result": {
+    "id": "puppycraft:threediapercore"
+  }
+}
