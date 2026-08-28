@@ -2,6 +2,7 @@ package com.srcfur.puppycraft.item;
 
 import com.srcfur.puppycraft.Constants;
 import com.srcfur.puppycraft.block.PuppyCraftBlocks;
+import com.srcfur.puppycraft.datacomponent.PuppyCraftDataComponents;
 import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
 import com.srcfur.puppycraft.item.diaper.DiaperFamilies;
 import com.srcfur.puppycraft.item.diaper.DiaperItem;
@@ -22,8 +23,12 @@ import java.util.function.Supplier;
 public class PuppyCraftItems {
     //Generics
     public static ItemHelper<Item> BabyBottle = simple("baby_bottle");
-    public static ItemHelper<Item> BabyBottleOfMilk = simple("milk_baby_bottle");
-    public static ItemHelper<Item> BabyBottleOfYouth = simple("youth_baby_bottle");
+    public static ItemHelper<Item> BabyBottleOfMilk = createHelper("milk_baby_bottle",
+            ()->new BabyBottle(ezKey("milk_baby_bottle").food(new FoodProperties(8, 4, true))
+                    .component(PuppyCraftDataComponents.BabyBottleData.get(), new BabyBottle.BottleData(10, -30))));
+    public static ItemHelper<Item> BabyBottleOfYouth = createHelper("youth_baby_bottle",
+            ()->new BabyBottle(ezKey("youth_baby_bottle").food(new FoodProperties(0, 0, true))
+                    .component(PuppyCraftDataComponents.BabyBottleData.get(), new BabyBottle.BottleData(0, -3000))));
     public static ItemHelper<BucketItem> BucketOfYouth = createHelper("youth_bucket", ()->new BucketItem(PuppyCraftFluids.Youth.get(), ezKey("youth_bucket")));
     public static ItemHelper<Item> CheapAbsorbentPolymer = simple("cheapdiapersap");
     public static ItemHelper<Item> CheapDiaperCore = simple("cheapdiapercore");

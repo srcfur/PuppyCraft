@@ -5,6 +5,7 @@ import com.srcfur.badhygiene.event.PlayerPoopSelf;
 import com.srcfur.puppycraft.attachment.PuppyCraftAttachments;
 import com.srcfur.puppycraft.block.PuppyCraftBlocks;
 import com.srcfur.puppycraft.block.entity.PuppyCraftBlockEntities;
+import com.srcfur.puppycraft.datacomponent.PuppyCraftDataComponents;
 import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
 import com.srcfur.puppycraft.item.PuppyCraftItems;
 import com.srcfur.puppycraft.utility.*;
@@ -37,6 +38,7 @@ public class PuppyCraftFabric implements ModInitializer {
         PuppyCraftCommon.init();
 
         PuppyCraftAttachments.initialize();
+        GenericHelper.registerClass(PuppyCraftDataComponents.class, DataComponentHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.DATA_COMPONENT_TYPE));
         GenericHelper.registerClass(PuppyCraftFluids.class, FluidHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.FLUID));
         GenericHelper.registerClass(PuppyCraftBlocks.class, BlockHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.BLOCK));
         GenericHelper.registerClass(PuppyCraftBlockEntities.class, BlockEntityHelper.class, PuppyCraftFabric::registerBlockEntity);

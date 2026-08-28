@@ -6,6 +6,7 @@ import com.srcfur.badhygiene.event.PlayerSoilSelfEvent;
 import com.srcfur.puppycraft.api.PuppyPlayer;
 import com.srcfur.puppycraft.block.PuppyCraftBlocks;
 import com.srcfur.puppycraft.block.entity.PuppyCraftBlockEntities;
+import com.srcfur.puppycraft.datacomponent.PuppyCraftDataComponents;
 import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
 import com.srcfur.puppycraft.item.PuppyCraftItems;
 import com.srcfur.puppycraft.utility.*;
@@ -93,6 +94,12 @@ public class PuppyCraftNeoForge {
                     Youth_FluidType = Registry.register(NeoForgeRegistries.FLUID_TYPES,
                             Identifier.fromNamespaceAndPath(Constants.MOD_ID, "youth"),
                             new FluidType(FluidType.Properties.create().canSwim(true).canHydrate(false).canPushEntity(true)));
+                }
+        );
+        event.register(
+                BuiltInRegistries.DATA_COMPONENT_TYPE.key(),
+                _->{
+                    GenericHelper.registerClass(PuppyCraftDataComponents.class, DataComponentHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.DATA_COMPONENT_TYPE));
                 }
         );
     }
