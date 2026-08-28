@@ -8,8 +8,10 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://fabricmc.net/",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
+        "homepage": "https://modrinth.com/mod/puppy-craft",
+        "sources": "https://github.com/srcfur/PuppyCraft",
+        "irc": "https://fluxer.gg/0G3Vmb3m",
+        "issues": "https://github.com/srcfur/PuppyCraft/issues"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",

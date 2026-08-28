@@ -4,7 +4,6 @@ import com.srcfur.puppycraft.PuppyCraftNeoForge;
 import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.neoforge.common.CommonHooks;
-import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.fluids.FluidType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

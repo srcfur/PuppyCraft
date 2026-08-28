@@ -20,6 +20,10 @@ public class PuppyCraftCommon {
     public static int MaximumGainedContinence = 125;
     public static int MinimumGainedContinence = 60;
 
+    public static int MaximumMaturity = 20000;
+    public static int DefaultMaturity = 18000;
+    public static int MinimumMaturity = 0;
+
     public static PuppyCraftAPI API = Services.load(PuppyCraftAPI.class);
 
     // The loader specific projects are able to import and use any code from the common project. This allows you to

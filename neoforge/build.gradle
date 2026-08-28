@@ -21,8 +21,8 @@ repositories{
 }
 
 dependencies {
-    implementation("com.srcfur:badhygiene-neoforge:26.1.2-2.0.0")
-    implementation "maven.modrinth:XaT8sLP6:gIMhLIZ0"
+    implementation("com.srcfur:badhygiene-neoforge:26.1.2-${bad_hygiene_version}")
+    implementation "maven.modrinth:trinkets-updated:${trinkets_version}"
     runtimeOnly "maven.modrinth:2MgfuPip:WQGs48qF"
 }
 

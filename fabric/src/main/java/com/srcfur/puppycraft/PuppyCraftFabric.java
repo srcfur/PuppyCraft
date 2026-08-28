@@ -1,5 +1,8 @@
 package com.srcfur.puppycraft;
 
+import com.srcfur.badhygiene.event.PlayerPeeSelf;
+import com.srcfur.badhygiene.event.PlayerPoopSelf;
+import com.srcfur.puppycraft.attachment.PuppyCraftAttachments;
 import com.srcfur.puppycraft.block.PuppyCraftBlocks;
 import com.srcfur.puppycraft.block.entity.PuppyCraftBlockEntities;
 import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
@@ -10,6 +13,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -32,10 +36,14 @@ public class PuppyCraftFabric implements ModInitializer {
         Constants.LOG.info("Hello Fabric world!");
         PuppyCraftCommon.init();
 
+        PuppyCraftAttachments.initialize();
         GenericHelper.registerClass(PuppyCraftFluids.class, FluidHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.FLUID));
         GenericHelper.registerClass(PuppyCraftBlocks.class, BlockHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.BLOCK));
         GenericHelper.registerClass(PuppyCraftBlockEntities.class, BlockEntityHelper.class, PuppyCraftFabric::registerBlockEntity);
         GenericHelper.registerClass(PuppyCraftItems.class, ItemHelper.class, GenericHelper.simpleRegisterHandler(BuiltInRegistries.ITEM));
+
+        PlayerPeeSelf.EVENT.register(event-> PuppyCraftCommon.API.getPuppyPlayer(event).peeSelf() ? InteractionResult.CONSUME : InteractionResult.PASS);
+        PlayerPoopSelf.EVENT.register(event-> PuppyCraftCommon.API.getPuppyPlayer(event).poopSelf() ? InteractionResult.CONSUME : InteractionResult.PASS);
     }
     private static BlockEntityProperties<BlockEntity> registerBlockEntity(Identifier id, Supplier<BlockEntityProperties<BlockEntity>> type){
         BlockEntityProperties<BlockEntity> props = type.get();

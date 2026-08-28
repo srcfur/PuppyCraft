@@ -92,7 +92,7 @@ public class PuppyCraftNeoForge {
                 _ -> {
                     Youth_FluidType = Registry.register(NeoForgeRegistries.FLUID_TYPES,
                             Identifier.fromNamespaceAndPath(Constants.MOD_ID, "youth"),
-                            new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false)));
+                            new FluidType(FluidType.Properties.create().canSwim(true).canHydrate(false).canPushEntity(true)));
                 }
         );
     }

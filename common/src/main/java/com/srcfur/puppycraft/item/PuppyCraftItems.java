@@ -11,6 +11,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
@@ -29,6 +30,7 @@ public class PuppyCraftItems {
     public static ItemHelper<Item> DiaperBackSheet = simple("clothbacksheet");
     public static ItemHelper<BlockItem> DiaperBag = block("diaper_bag", PuppyCraftBlocks.DiaperBag);
     public static ItemHelper<Item> DiaperTrash = simple("balled_diaper");
+    public static ItemHelper<LaxativeCookie> LaxativeCookie = createHelper("laxative_cookie", ()->new LaxativeCookie(ezKey("laxative_cookie").food(new FoodProperties(10, 10, true))));
     public static ItemHelper<Item> NormalDiaperCore = simple("diapercore");
     public static ItemHelper<Item> PremiumDiaperCore = simple("threediapercore");
     public static ItemHelper<BlockItem> PuppyPad = block("puppy_pad", PuppyCraftBlocks.PuppyPad);
