@@ -63,6 +63,21 @@ public class PuppyCraftRecipeProvider extends FabricRecipeProvider {
                 createDiaperCoreRecipe(output, PuppyCraftItems.Salt.get(), PuppyCraftItems.CheapDiaperCore.get());
                 createDiaperCoreRecipe(output, PuppyCraftItems.CheapAbsorbentPolymer.get(), PuppyCraftItems.NormalDiaperCore.get());
                 createDiaperCoreRecipe(output, PuppyCraftItems.SuperAbsorbentPolymer.get(), PuppyCraftItems.PremiumDiaperCore.get());
+
+                createDiaperRecipe(output, Items.PAPER, PuppyCraftItems.CheapDiaperCore.get(), PuppyCraftItems.CheapDiaper.get());
+                createDiaperRecipe(output, Items.PAPER, PuppyCraftItems.NormalDiaperCore.get(), PuppyCraftItems.PullUpDiaper.get());
+                createDiaperRecipe(output, PuppyCraftItems.DiaperBackSheet.get(), PuppyCraftItems.NormalDiaperCore.get(), PuppyCraftItems.MedicalDiaper.get());
+                createDiaperRecipe(output, PuppyCraftItems.DiaperBackSheet.get(), PuppyCraftItems.PremiumDiaperCore.get(), PuppyCraftItems.MegaMaxDiaper.get());
+            }
+            void createDiaperRecipe(RecipeOutput output, ItemLike fabric, ItemLike core, ItemLike diaper){
+                var recipe = ShapedRecipeBuilder.shaped(
+                        this.registries.lookupOrThrow(Registries.ITEM),
+                        RecipeCategory.MISC,
+                        diaper).define('F', fabric).define('C', core);
+                recipe.pattern("FFF");
+                recipe.pattern(" C ");
+                recipe.pattern("FFF");
+                recipe.unlockedBy(getHasName(core), has(core)).save(output, Constants.MOD_ID + ":" + getItemName(diaper) + "_craftingtable");
             }
             void createDiaperCoreRecipe(RecipeOutput output, ItemLike filling, ItemLike result){
                 var recipe = ShapedRecipeBuilder.shaped(
