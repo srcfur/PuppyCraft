@@ -51,7 +51,7 @@ public class PuppyCraftItems {
     public static ItemHelper<DiaperItem> BunnyHoppsDiaper = diaper("bunnyhoppsdiaper", "bunnyhopps", DiaperFamilies.BUNNYHOPPS, DiaperCapacityMega);
     public static ItemHelper<DiaperItem> CheapDiaper = diaper("cheapdiaper", "cheap", DiaperFamilies.CHEAP, DiaperCapacityCheap);
     public static ItemHelper<DiaperItem> MedicalDiaper = diaper("medicaldiaper", "medical", DiaperFamilies.MEDICAL, DiaperCapacityMedical);
-    public static ItemHelper<DiaperItem> MegaMaxDiaper = diaper("megamaxdiaper", "megamax", DiaperFamilies.MEGAMAX, DiaperCapacityMega);
+    public static ItemHelper<DiaperItem> MegaMaxDiaper = diaper("megamaxdiaper", "mega", DiaperFamilies.MEGAMAX, DiaperCapacityMega);
     public static ItemHelper<DiaperItem> PullUpDiaper = diaper("pullupdiaper", "pullup", DiaperFamilies.PULLUPS, 2 * (DiaperCapacityMedical / 3));
     public static ItemHelper<DiaperItem> SubspaceDiaper = diaper("subspacediaper", "subspace", DiaperFamilies.PHIGHTING, DiaperCapacityMega);
 
