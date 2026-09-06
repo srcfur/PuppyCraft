@@ -64,6 +64,14 @@ public class PuppyCraftCommonRecipes extends RecipeProvider {
                 RecipeCategory.MISC, CookingBookCategory.MISC, PuppyCraftItems.Salt.get(), 0.1f, 20)
                         .unlockedBy(getHasName(PuppyCraftItems.RawSalt.get()), has(PuppyCraftItems.RawSalt.get())).save(output, Constants.MOD_ID + ":saltsmelting");
 
+        ShapedRecipeBuilder.shaped(registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, PuppyCraftItems.DiaperBag.get())
+                        .pattern("###").pattern("# #").pattern("###").define('#', Items.DRIED_KELP)
+                        .unlockedBy(getHasName(Items.DRIED_KELP), has(Items.DRIED_KELP)).save(output, Constants.MOD_ID + ":diaperbag");
+        ShapedRecipeBuilder.shaped(registries.lookupOrThrow(Registries.ITEM), RecipeCategory.MISC, PuppyCraftItems.BabyBottle.get())
+                        .pattern("t").pattern("d").pattern("b")
+                        .define('t', Items.DRIED_KELP).define('d', Items.BLUE_DYE).define('b', Items.GLASS_BOTTLE)
+                        .unlockedBy(getHasName(Items.GLASS_BOTTLE), has(Items.GLASS_BOTTLE)).save(output, Constants.MOD_ID + ":baby_bottle");
+
         createDiaperCoreRecipe(output, PuppyCraftItems.Salt.get(), PuppyCraftItems.CheapDiaperCore.get());
         createDiaperCoreRecipe(output, PuppyCraftItems.CheapAbsorbentPolymer.get(), PuppyCraftItems.NormalDiaperCore.get());
         createDiaperCoreRecipe(output, PuppyCraftItems.SuperAbsorbentPolymer.get(), PuppyCraftItems.PremiumDiaperCore.get());
