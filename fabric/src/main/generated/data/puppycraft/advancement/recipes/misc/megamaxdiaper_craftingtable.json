@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "puppycraft:megamaxdiaper_craftingtable"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_threediapercore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "puppycraft:threediapercore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_threediapercore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "puppycraft:megamaxdiaper_craftingtable"
+    ]
+  }
+}
