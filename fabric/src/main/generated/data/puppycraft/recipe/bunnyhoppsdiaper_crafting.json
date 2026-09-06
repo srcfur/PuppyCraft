@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "puppycraft:megamaxdiaper",
+    "minecraft:pink_dye",
+    "minecraft:pink_dye"
+  ],
+  "result": {
+    "id": "puppycraft:bunnyhoppsdiaper"
+  }
+}

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_salt": {
+    "has_megamaxdiaper": {
       "conditions": {
         "items": [
           {
-            "items": "puppycraft:raw_salt"
+            "items": "puppycraft:megamaxdiaper"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "puppycraft:salt_from_smelting_raw_salt"
+        "recipe": "puppycraft:bunnyhoppsdiaper_crafting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_raw_salt"
+      "has_megamaxdiaper"
     ]
   ],
   "rewards": {
     "recipes": [
-      "puppycraft:salt_from_smelting_raw_salt"
+      "puppycraft:bunnyhoppsdiaper_crafting"
     ]
   }
 }

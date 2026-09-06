@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "puppycraft:threediapercore",
+    "F": "puppycraft:clothbacksheet"
+  },
+  "pattern": [
+    "FFF",
+    " C ",
+    "FFF"
+  ],
+  "result": {
+    "id": "puppycraft:megamaxdiaper"
+  }
+}

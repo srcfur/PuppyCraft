@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sugar_cane": {
+    "has_megamaxdiaper": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:sugar_cane"
+            "items": "puppycraft:megamaxdiaper"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "puppycraft:sugar_cane_to_wood_pulp"
+        "recipe": "puppycraft:bunnyhoppsdiaper_crafting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_sugar_cane"
+      "has_megamaxdiaper"
     ]
   ],
   "rewards": {
     "recipes": [
-      "puppycraft:sugar_cane_to_wood_pulp"
+      "puppycraft:bunnyhoppsdiaper_crafting"
     ]
   }
 }

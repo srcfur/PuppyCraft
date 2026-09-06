@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_salt": {
+    "has_cheapdiapersap": {
       "conditions": {
         "items": [
           {
-            "items": "puppycraft:salt"
+            "items": "puppycraft:cheapdiapersap"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "puppycraft:cheapdiapersap"
+        "recipe": "puppycraft:sap"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_salt"
+      "has_cheapdiapersap"
     ]
   ],
   "rewards": {
     "recipes": [
-      "puppycraft:cheapdiapersap"
+      "puppycraft:sap"
     ]
   }
 }

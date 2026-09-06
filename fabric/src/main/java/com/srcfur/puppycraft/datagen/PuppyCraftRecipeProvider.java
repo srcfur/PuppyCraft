@@ -29,67 +29,7 @@ public class PuppyCraftRecipeProvider extends FabricRecipeProvider {
 
     @Override
     protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-        return new RecipeProvider(registries, output) {
-            @Override
-            public void buildRecipes() {
-                HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(BuiltInRegistries.ITEM.key());
-                oreSmelting(List.of(PuppyCraftItems.RawSalt.get()),
-                        RecipeCategory.MISC,
-                        CookingBookCategory.MISC,
-                        PuppyCraftItems.Salt.get(),
-                        0.25f,
-                        60,
-                        "raw_salt_to_salt_smelting");
-                shapeless(RecipeCategory.MISC, PuppyCraftItems.CheapAbsorbentPolymer.get())
-                        .requires(PuppyCraftItems.Salt.get(), 4)
-                        .unlockedBy(getHasName(PuppyCraftItems.Salt.get()), has(PuppyCraftItems.Salt.get()))
-                        .save(output);
-                shapeless(RecipeCategory.MISC, PuppyCraftItems.SuperAbsorbentPolymer.get())
-                        .requires(PuppyCraftItems.CheapAbsorbentPolymer.get(), 2)
-                        .requires(PuppyCraftItems.WoodPulp.get(), 2)
-                        .unlockedBy(getHasName(PuppyCraftItems.CheapAbsorbentPolymer.get()), has(PuppyCraftItems.CheapAbsorbentPolymer.get()))
-                        .save(output);
-                SimpleCookingRecipeBuilder.smoking(Ingredient.of(Items.SUGAR_CANE),
-                        RecipeCategory.MISC,
-                        PuppyCraftItems.WoodPulp.get(),
-                        0.1f,
-                        20)
-                        .unlockedBy(getHasName(Items.SUGAR_CANE), has(Items.SUGAR_CANE))
-                        .save(output, "sugar_cane_to_wood_pulp");
-                SimpleCookingRecipeBuilder.smoking(Ingredient.of(registries.lookupOrThrow(BuiltInRegistries.ITEM.key()).getOrThrow(ItemTags.LOGS)),
-                                RecipeCategory.MISC, PuppyCraftItems.WoodPulp.get(), 0.1f, 30)
-                        .unlockedBy(getHasName(Items.SUGAR_CANE), has(Items.SUGAR_CANE)).save(output, Constants.MOD_ID + ":pulp_from_wood");
-
-                createDiaperCoreRecipe(output, PuppyCraftItems.Salt.get(), PuppyCraftItems.CheapDiaperCore.get());
-                createDiaperCoreRecipe(output, PuppyCraftItems.CheapAbsorbentPolymer.get(), PuppyCraftItems.NormalDiaperCore.get());
-                createDiaperCoreRecipe(output, PuppyCraftItems.SuperAbsorbentPolymer.get(), PuppyCraftItems.PremiumDiaperCore.get());
-
-                createDiaperRecipe(output, Items.PAPER, PuppyCraftItems.CheapDiaperCore.get(), PuppyCraftItems.CheapDiaper.get());
-                createDiaperRecipe(output, Items.PAPER, PuppyCraftItems.NormalDiaperCore.get(), PuppyCraftItems.PullUpDiaper.get());
-                createDiaperRecipe(output, PuppyCraftItems.DiaperBackSheet.get(), PuppyCraftItems.NormalDiaperCore.get(), PuppyCraftItems.MedicalDiaper.get());
-                createDiaperRecipe(output, PuppyCraftItems.DiaperBackSheet.get(), PuppyCraftItems.PremiumDiaperCore.get(), PuppyCraftItems.MegaMaxDiaper.get());
-            }
-            void createDiaperRecipe(RecipeOutput output, ItemLike fabric, ItemLike core, ItemLike diaper){
-                var recipe = ShapedRecipeBuilder.shaped(
-                        this.registries.lookupOrThrow(Registries.ITEM),
-                        RecipeCategory.MISC,
-                        diaper).define('F', fabric).define('C', core);
-                recipe.pattern("FFF");
-                recipe.pattern(" C ");
-                recipe.pattern("FFF");
-                recipe.unlockedBy(getHasName(core), has(core)).save(output, Constants.MOD_ID + ":" + getItemName(diaper) + "_craftingtable");
-            }
-            void createDiaperCoreRecipe(RecipeOutput output, ItemLike filling, ItemLike result){
-                var recipe = ShapedRecipeBuilder.shaped(
-                        this.registries.lookupOrThrow(Registries.ITEM),
-                        RecipeCategory.MISC,
-                        result).define('P', Items.PAPER).define('C', filling);
-                for(int i = 0; i < 3; i++){
-                    recipe.pattern("PCP");
-                }
-                recipe.unlockedBy(getHasName(filling), has(filling)).save(output, Constants.MOD_ID + ":crafting_table_core_" + getItemName(result));
-            }
-        };
+        return new PuppyCraftCommonRecipes(registries, output);
     }
 
 
