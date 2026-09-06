@@ -17,5 +17,6 @@ public class PuppyCraftClientFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         FluidRenderingRegistry.register(PuppyCraftFluids.Youth.get(), PuppyCraftFluids.Flowing_Youth.get(), YouthFluid.getModel());
+        PuppyCraftCommon.registerTrinketRenderers();
     }
 }
