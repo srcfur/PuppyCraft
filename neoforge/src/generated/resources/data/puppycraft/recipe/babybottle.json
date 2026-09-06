@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": "minecraft:glass_bottle",
+    "d": "minecraft:blue_dye",
+    "t": "minecraft:dried_kelp"
+  },
+  "pattern": [
+    "t",
+    "d",
+    "b"
+  ],
+  "result": {
+    "id": "puppycraft:baby_bottle"
+  }
+}

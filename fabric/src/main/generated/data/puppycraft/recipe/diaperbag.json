@@ -1,15 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:dried_kelp"
+  },
   "pattern": [
     "###",
     "# #",
     "###"
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:dried_kelp"
-    }
-  },
   "result": {
     "id": "puppycraft:diaper_bag"
   }
