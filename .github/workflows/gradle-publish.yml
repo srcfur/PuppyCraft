@@ -38,8 +38,16 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Fluxer Webhook Action
+    - name: Fluxer Post Fabric Build
       uses: tsickert/discord-webhook@v7.0.0
       with:
         webhook-url: ${{ secrets.WEBHOOK_URL }}
-        content: "Test"
+        content: "Fabric Build"
+        filename: "./fabric/build/libs/puppycraft-fabric-26.1.2-3.0.1.jar"
+
+    - name: Fluxer Post Neoforge Build
+      uses: tsickert/discord-webhook@v7.0.0
+      with:
+        webhook-url: ${{ secrets.WEBHOOK_URL }}
+        content: "Neoforge Build"
+        filename: "./neoforge/build/libs/puppycraft-neoforge-26.1.2-3.0.1.jar"
