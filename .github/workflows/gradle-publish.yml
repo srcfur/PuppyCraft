@@ -34,3 +34,10 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+
+    - uses: actions/checkout@v2
+    - name: Fluxer Webhook Action
+      uses: tsickert/discord-webhook@v7.0.0
+      with:
+        webhook-url: ${{ secrets.WEBHOOK_URL }}
+        filename: test.txt
