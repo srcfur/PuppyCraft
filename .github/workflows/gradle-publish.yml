@@ -42,4 +42,4 @@ jobs:
       uses: tsickert/discord-webhook@v7.0.0
       with:
         webhook-url: ${{ secrets.WEBHOOK_URL }}
-        filename: test.txt
+        content: "Test"
