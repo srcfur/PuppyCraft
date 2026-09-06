@@ -46,6 +46,7 @@ public class BabyBottle extends Item {
         BottleData data = stack.getOrDefault(PuppyCraftDataComponents.BabyBottleData.get(), new BottleData(0,0));
         puppy.impactMaturity(data.maturity());
         puppy.getHygiene().setBladder(puppy.getHygiene().getBladder() + data.urine());
+        puppy.getPlayer().getInventory().add(new ItemStack(PuppyCraftItems.BabyBottle.get()));
         return super.finishUsingItem(stack, level, livingEntity);
     }
 }
