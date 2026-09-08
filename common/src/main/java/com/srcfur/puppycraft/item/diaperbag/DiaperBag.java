@@ -18,8 +18,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 public class DiaperBag extends BlockItem {
@@ -46,26 +48,28 @@ public class DiaperBag extends BlockItem {
         if(data == null){
             return super.getName(itemStack);
         }
+        if(data.family() > DiaperFamilies.values().length){
+            Logger.getAnonymousLogger().warning("Invalid Diaper Family Position!");
+            return Component.literal("...");
+        }
         return Component.translatable("item.puppycraft.diaperbag." + DiaperFamilies.values()[data.family()].getSerializedName());
     }
 
     @Override
-    public InteractionResult place(BlockPlaceContext placeContext) {
-        BlockPlaceContext updatedPlaceContext = this.updatePlacementContext(placeContext);
-        assert updatedPlaceContext != null;
-        ItemStack itemStack = updatedPlaceContext.getItemInHand();
-        InteractionResult og = super.place(placeContext);
-        if(og == InteractionResult.SUCCESS){
-            BlockEntity ent = placeContext.getLevel().getBlockEntity(placeContext.getClickedPos());
+    protected boolean placeBlock(BlockPlaceContext context, BlockState placementState) {
+        if(super.placeBlock(context, placementState)){
+            ItemStack itemStack = context.getItemInHand();
+            BlockEntity ent = context.getLevel().getBlockEntity(context.getClickedPos());
             DiaperBagEntity diaperbag = (DiaperBagEntity) ent;
             assert diaperbag != null;
             ItemContainerContents storedContents = itemStack.get(DataComponents.CONTAINER);
-            if(storedContents == null){ return og; }
+            if(storedContents == null){ return true; }
             List<ItemStack> stacks = storedContents.allItemsCopyStream().toList();
             for(int i = 0; i < diaperbag.getContainerSize() && i < stacks.size(); i++){
                 diaperbag.setItem(i, stacks.get(i));
             }
+            return true;
         }
-        return og;
+        return false;
     }
 }
