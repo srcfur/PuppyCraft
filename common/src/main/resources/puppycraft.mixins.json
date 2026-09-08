@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [],
   "client": [
-    "DiaperBagCountMixin"
+    "DiaperBagCountMixin",
+    "FountainOfYouthDropinMixin"
   ],
   "server": [],
   "injectors": {

@@ -41,6 +41,7 @@ public class PuppyCraftItems {
     public static ItemHelper<LaxativeCookie> LaxativeCookie = createHelper("laxative_cookie", ()->new LaxativeCookie(ezKey("laxative_cookie").food(new FoodProperties(10, 10, true))));
     public static ItemHelper<Item> NormalDiaperCore = simple("diapercore");
     public static ItemHelper<Item> PremiumDiaperCore = simple("threediapercore");
+    public static ItemHelper<MaturityGem> GEM_OF_MATURITY = createHelper("gem_of_maturity", ()->new MaturityGem(ezKey("gem_of_maturity")));
     public static ItemHelper<BlockItem> PuppyPad = block("puppy_pad", PuppyCraftBlocks.PuppyPad);
     public static ItemHelper<Item> RawSalt = simple("raw_salt");
     public static ItemHelper<Item> Salt = simple("salt");
