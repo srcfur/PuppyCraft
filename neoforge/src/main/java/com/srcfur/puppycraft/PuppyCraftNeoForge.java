@@ -9,9 +9,12 @@ import com.srcfur.puppycraft.block.entity.PuppyCraftBlockEntities;
 import com.srcfur.puppycraft.datacomponent.PuppyCraftDataComponents;
 import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
 import com.srcfur.puppycraft.item.PuppyCraftItems;
+import com.srcfur.puppycraft.item.diaper.DiaperItem;
+import com.srcfur.puppycraft.item.diaperbag.DiaperBagData;
 import com.srcfur.puppycraft.utility.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -20,6 +23,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -33,6 +37,7 @@ import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
@@ -142,9 +147,27 @@ public class PuppyCraftNeoForge {
                                         out.accept(PuppyCraftItems.MegaMaxDiaper.get());
                                         out.accept(PuppyCraftItems.SubspaceDiaper.get());
                                         out.accept(PuppyCraftItems.BunnyHoppsDiaper.get());
+
+                                        out.accept(creativeDiaperBagStack(PuppyCraftItems.CheapDiaper.get()));
+                                        out.accept(creativeDiaperBagStack(PuppyCraftItems.MedicalDiaper.get()));
+                                        out.accept(creativeDiaperBagStack(PuppyCraftItems.PullUpDiaper.get()));
+                                        out.accept(creativeDiaperBagStack(PuppyCraftItems.MegaMaxDiaper.get()));
+                                        out.accept(creativeDiaperBagStack(PuppyCraftItems.SubspaceDiaper.get()));
+                                        out.accept(creativeDiaperBagStack(PuppyCraftItems.BunnyHoppsDiaper.get()));
                                     })
                             .build());
                 }
         );
+    }
+    private static ItemStack creativeDiaperBagStack(DiaperItem diaper){
+        ItemStack stack = new ItemStack(PuppyCraftItems.DiaperBag.get());
+        ArrayList<ItemStack> inventory = new ArrayList<>();
+        for(int i = 0; i < 10; i++){
+            inventory.add(new ItemStack(diaper));
+        }
+        ItemContainerContents contents = ItemContainerContents.fromItems(inventory);
+        stack.set(DataComponents.CONTAINER, contents);
+        stack.set(PuppyCraftDataComponents.DiaperBagData.get(), new DiaperBagData(diaper.Family.ordinal(), 10));
+        return stack;
     }
 }
