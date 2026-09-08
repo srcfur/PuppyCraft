@@ -3,6 +3,8 @@ package com.srcfur.puppycraft.datacomponent;
 import com.mojang.serialization.Codec;
 import com.srcfur.puppycraft.Constants;
 import com.srcfur.puppycraft.item.BabyBottle;
+import com.srcfur.puppycraft.item.diaperbag.DiaperBag;
+import com.srcfur.puppycraft.item.diaperbag.DiaperBagData;
 import com.srcfur.puppycraft.utility.DataComponentHelper;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.resources.Identifier;
@@ -15,6 +17,11 @@ public class PuppyCraftDataComponents {
             .persistent(BabyBottle.BOTTLE_DATA_CODEC)
             .networkSynchronized(BabyBottle.BOTTLE_DATA_STREAM)
             .build());
+    public static final DataComponentHelper<DiaperBagData> DiaperBagData = createHelper("diaper_bag",
+            ()->new DataComponentType.Builder<DiaperBagData>()
+                    .persistent(DiaperBag.CODEC)
+                    .networkSynchronized(DiaperBag.STREAM_CODEC)
+                    .build());
     private static <T> DataComponentHelper<T> createHelper(String name, Supplier<DataComponentType<T>> supplier){
         return new DataComponentHelper<>(Identifier.fromNamespaceAndPath(Constants.MOD_ID, name), supplier);
     }

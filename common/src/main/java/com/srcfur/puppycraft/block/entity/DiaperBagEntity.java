@@ -16,6 +16,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
+import java.util.List;
+
 public class DiaperBagEntity extends BlockEntity implements Container {
     public DiaperBagEntity(BlockEntityType<?> type, BlockPos worldPosition, BlockState blockState) {
         super(type, worldPosition, blockState);
@@ -37,6 +39,20 @@ public class DiaperBagEntity extends BlockEntity implements Container {
                 return false;
         }
         return true;
+    }
+
+    public List<ItemStack> getInventory(){
+        return inventory;
+    }
+
+    public int getCount(){
+        int x = 0;
+        for(int i = 0; i < getContainerSize(); i++){
+            if(getItem(i).isEmpty())
+                continue;
+            x++;
+        }
+        return x;
     }
 
     public int getNextAvailableSlot(){

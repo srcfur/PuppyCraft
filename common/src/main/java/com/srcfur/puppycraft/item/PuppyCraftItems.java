@@ -6,6 +6,7 @@ import com.srcfur.puppycraft.datacomponent.PuppyCraftDataComponents;
 import com.srcfur.puppycraft.fluid.PuppyCraftFluids;
 import com.srcfur.puppycraft.item.diaper.DiaperFamilies;
 import com.srcfur.puppycraft.item.diaper.DiaperItem;
+import com.srcfur.puppycraft.item.diaperbag.DiaperBag;
 import com.srcfur.puppycraft.utility.BlockHelper;
 import com.srcfur.puppycraft.utility.ItemHelper;
 import net.minecraft.core.component.DataComponents;
@@ -35,7 +36,7 @@ public class PuppyCraftItems {
     public static ItemHelper<Item> CheapAbsorbentPolymer = simple("cheapdiapersap");
     public static ItemHelper<Item> CheapDiaperCore = simple("cheapdiapercore");
     public static ItemHelper<Item> DiaperBackSheet = simple("clothbacksheet");
-    public static ItemHelper<BlockItem> DiaperBag = block("diaper_bag", PuppyCraftBlocks.DiaperBag);
+    public static ItemHelper<DiaperBag> DiaperBag = createHelper("diaper_bag", ()->new DiaperBag(ezKey("diaper_bag").stacksTo(1)));
     public static ItemHelper<Item> DiaperTrash = simple("balled_diaper");
     public static ItemHelper<LaxativeCookie> LaxativeCookie = createHelper("laxative_cookie", ()->new LaxativeCookie(ezKey("laxative_cookie").food(new FoodProperties(10, 10, true))));
     public static ItemHelper<Item> NormalDiaperCore = simple("diapercore");

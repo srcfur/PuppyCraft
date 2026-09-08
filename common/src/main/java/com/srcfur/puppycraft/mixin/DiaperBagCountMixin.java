@@ -1,6 +1,8 @@
 package com.srcfur.puppycraft.mixin;
 
+import com.srcfur.puppycraft.datacomponent.PuppyCraftDataComponents;
 import com.srcfur.puppycraft.item.PuppyCraftItems;
+import com.srcfur.puppycraft.item.diaperbag.DiaperBagData;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,7 +25,10 @@ public abstract class DiaperBagCountMixin {
     void puppycraft$itemDecorations(Font font, ItemStack stack, int x, int y, String counttext, CallbackInfo ci){
         if(stack.isEmpty() || stack.getItem() != PuppyCraftItems.DiaperBag.get())
             return;
-        String amount = Integer.toString(0);
+        DiaperBagData data = stack.get(PuppyCraftDataComponents.DiaperBagData.get());
+        if(data == null)
+            return;
+        String amount = Integer.toString(data.diapercount());
         this.text(font, (String)amount, x + 19 - 2 - font.width(amount), y + 6 + 3, -1, true);
     }
 }
