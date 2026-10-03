@@ -24,6 +24,8 @@ public class PuppyCraftBlockLootTableProvider extends FabricBlockLootSubProvider
                 LootTable.lootTable().withPool(applyExplosionCondition(PuppyCraftItems.RawSalt.get(), LootPool.lootPool()
                         .setRolls(new UniformGenerator(new ConstantValue(2), new ConstantValue(5)))
                         .add(LootItem.lootTableItem(PuppyCraftItems.RawSalt.get())))));
+        add(PuppyCraftBlocks.Crib.get(),
+                LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(PuppyCraftItems.Crib.get()))));
     }
     @Override
     public String getName() {

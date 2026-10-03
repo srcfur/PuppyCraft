@@ -6,6 +6,8 @@ import com.srcfur.puppycraft.utility.BlockHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -19,6 +21,7 @@ public class PuppyCraftBlocks {
     public static final BlockHelper<Block> RawSalt = createHelper("seasalt", ()->new Block(ezKey("seasalt").destroyTime(0.75f)));
     public static final BlockHelper<LiquidBlock> Youth = createHelper("youth", ()->new TransientLiquidBlock(PuppyCraftFluids.Youth.get(),
             BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(), Identifier.fromNamespaceAndPath(Constants.MOD_ID, "youth")))));
+    public static final BlockHelper<BedBlock> Crib = createHelper("crib", ()->new CribBlock(DyeColor.WHITE, ezKey("crib")));
 
     private static BlockBehaviour.Properties ezKey(String name){
         return BlockBehaviour.Properties.of().setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(), Identifier.fromNamespaceAndPath(Constants.MOD_ID, name)));

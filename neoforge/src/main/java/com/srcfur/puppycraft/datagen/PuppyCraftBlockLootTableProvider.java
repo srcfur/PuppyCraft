@@ -28,6 +28,7 @@ public class PuppyCraftBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         add(PuppyCraftBlocks.RawSalt.get(),
                 block -> createMultipleOreDrops(PuppyCraftBlocks.RawSalt.get(), PuppyCraftItems.RawSalt.get(), 2, 5));
+        add(PuppyCraftBlocks.Crib.get(), createSingleItemTable(PuppyCraftItems.Crib.get()));
     }
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
@@ -38,6 +39,6 @@ public class PuppyCraftBlockLootTableProvider extends BlockLootSubProvider {
     }
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return Set.of(PuppyCraftBlocks.RawSalt.get())::iterator;
+        return Set.of(PuppyCraftBlocks.RawSalt.get(), PuppyCraftBlocks.Crib.get())::iterator;
     }
 }

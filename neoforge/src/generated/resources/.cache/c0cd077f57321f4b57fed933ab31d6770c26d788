@@ -1,4 +1,5 @@
-// 26.1.2	2026-09-06T04:00:23.1700498	puppycraft
+// 26.1.2	2026-10-03T03:18:11.3260212	puppycraft
+6f5b7224018698b9709de425f6b8615d157918e2 data/puppycraft/advancement/recipes/decorations/crib_crafting.json
 8440c7e592fd0df35350bb81c6cc0477492ec162 data/puppycraft/advancement/recipes/food/baby_bottle_fill_bucket.json
 0839d319c24b2e64083c3a1f1f773f652cff6e5f data/puppycraft/advancement/recipes/food/youth_baby_bottle_fill_bucket.json
 2a293aa9500e877353a26aff67623c74de895fd1 data/puppycraft/advancement/recipes/misc/babybottle.json
@@ -27,6 +28,7 @@ e944fb9efbbec9200ebd906407a28e3ff4303c04 data/puppycraft/recipe/cheap_sap.json
 0c692cd93b250a847e558d148a7c2b04a7a91de1 data/puppycraft/recipe/crafting_table_core_cheapdiapercore.json
 5c0ad460625e2086854bbbe730703ace9bc57123 data/puppycraft/recipe/crafting_table_core_diapercore.json
 1d95592d2e8a004a4009170f19f0bcac6435aa3b data/puppycraft/recipe/crafting_table_core_threediapercore.json
+2b830120f29a84f30dbea75c91aa34d6a64a0233 data/puppycraft/recipe/crib_crafting.json
 bd300f1b28abd539e5642e8f38bda1abd4429d43 data/puppycraft/recipe/diaperbag.json
 be6a77b77d4e83e7953a84b86092bdcd2db39aca data/puppycraft/recipe/diaper_backsheet_from_wool.json
 95956ee7467b2c6df02b5b64bf11e693866cd2ec data/puppycraft/recipe/medicaldiaper_craftingtable.json

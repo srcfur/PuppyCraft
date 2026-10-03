@@ -17,6 +17,7 @@ import java.util.function.Supplier;
 
 public class PuppyCraftBlockEntities {
     public static final BlockEntityHelper<DiaperBagEntity> DiaperBag = createHelper("diaperbag", DiaperBagEntity::new, List.of(PuppyCraftBlocks.DiaperBag));
+    public static final BlockEntityHelper<CribEntity> Crib = createHelper("crib", CribEntity::new, List.of(PuppyCraftBlocks.Crib));
     private static <R extends BlockEntity> BlockEntityHelper<R> createHelper(String name, BiFunction<BlockPos, BlockState, R> factory, List<BlockHelper<?>> blocks){
         return new BlockEntityHelper<>(Identifier.fromNamespaceAndPath(Constants.MOD_ID, name), factory, blocks);
     }

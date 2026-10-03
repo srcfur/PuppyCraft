@@ -10,6 +10,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
@@ -72,6 +73,12 @@ public class PuppyCraftCommonRecipes extends RecipeProvider {
                         .pattern("t").pattern("d").pattern("b")
                         .define('t', Items.DRIED_KELP).define('d', Items.BLUE_DYE).define('b', Items.GLASS_BOTTLE)
                         .unlockedBy(getHasName(Items.GLASS_BOTTLE), has(Items.GLASS_BOTTLE)).save(output, Constants.MOD_ID + ":babybottle");
+
+        ShapedRecipeBuilder.shaped(registries.lookupOrThrow(Registries.ITEM), RecipeCategory.DECORATIONS, PuppyCraftItems.Crib.get())
+                        .pattern("w").pattern("l")
+                        .define('w', Items.PINK_WOOL)
+                        .define('l', Ingredient.of(registries.lookupOrThrow(BuiltInRegistries.ITEM.key()).getOrThrow(ItemTags.LOGS)))
+                        .unlockedBy(getHasName(Items.PINK_WOOL), has(Items.PINK_WOOL)).save(output, Constants.MOD_ID + ":crib_crafting");
 
         createDiaperCoreRecipe(output, PuppyCraftItems.Salt.get(), PuppyCraftItems.CheapDiaperCore.get());
         createDiaperCoreRecipe(output, PuppyCraftItems.CheapAbsorbentPolymer.get(), PuppyCraftItems.NormalDiaperCore.get());
