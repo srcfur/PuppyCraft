@@ -4,56 +4,56 @@
       "when": { "facing": "north", "part": "head" },
       "apply": {
         "y": 180,
-        "model": "puppycraft:block/crib_head"
+        "model": "puppycraft:block/crib_variants/white_crib_head"
       }
     },
     {
       "when": { "facing": "east", "part": "head" },
       "apply": {
         "y": 270,
-        "model": "puppycraft:block/crib_head"
+        "model": "puppycraft:block/crib_variants/white_crib_head"
       }
     },
     {
       "when": { "facing": "south", "part": "head" },
       "apply": {
         "y": 0,
-        "model": "puppycraft:block/crib_head"
+        "model": "puppycraft:block/crib_variants/white_crib_head"
       }
     },
     {
       "when": { "facing": "west", "part": "head" },
       "apply": {
         "y": 90,
-        "model": "puppycraft:block/crib_head"
+        "model": "puppycraft:block/crib_variants/white_crib_head"
       }
     },
     {
       "when": { "facing": "north", "part": "foot"},
       "apply": {
         "y": 180,
-        "model": "puppycraft:block/crib"
+        "model": "puppycraft:block/crib_variants/white_crib_foot"
       }
     },
     {
       "when": { "facing": "east", "part": "foot"},
       "apply": {
         "y": 270,
-        "model": "puppycraft:block/crib"
+        "model": "puppycraft:block/crib_variants/white_crib_foot"
       }
     },
     {
       "when": { "facing": "south", "part": "foot"},
       "apply": {
         "y": 0,
-        "model": "puppycraft:block/crib"
+        "model": "puppycraft:block/crib_variants/white_crib_foot"
       }
     },
     {
       "when": { "facing": "west", "part": "foot"},
       "apply": {
         "y": 90,
-        "model": "puppycraft:block/crib"
+        "model": "puppycraft:block/crib_variants/white_crib_foot"
       }
     }
   ]

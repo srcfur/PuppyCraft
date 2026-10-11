@@ -1,0 +1,6 @@
+{
+  "parent": "puppycraft:block/crib_head",
+  "textures": {
+    "1": "block/white_wool"
+  }
+}

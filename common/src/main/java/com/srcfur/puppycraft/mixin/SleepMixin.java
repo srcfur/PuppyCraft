@@ -1,6 +1,7 @@
 package com.srcfur.puppycraft.mixin;
 
 import com.srcfur.puppycraft.Constants;
+import com.srcfur.puppycraft.block.CribBlock;
 import com.srcfur.puppycraft.block.PuppyCraftBlocks;
 import net.minecraft.Optionull;
 import net.minecraft.core.BlockPos;
@@ -32,7 +33,7 @@ public abstract class SleepMixin extends LivingEntity {
             return;
         }
         BlockState block = this.level().getBlockState(bedPos.get());
-        if(block.getBlock() != PuppyCraftBlocks.Crib.get() || force) return;
+        if(!(block.getBlock() instanceof CribBlock) || force) return;
         ci.cancel();
     }
 }

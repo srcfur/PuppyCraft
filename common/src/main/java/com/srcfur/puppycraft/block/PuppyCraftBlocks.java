@@ -21,7 +21,7 @@ public class PuppyCraftBlocks {
     public static final BlockHelper<Block> RawSalt = createHelper("seasalt", ()->new Block(ezKey("seasalt").destroyTime(0.75f)));
     public static final BlockHelper<LiquidBlock> Youth = createHelper("youth", ()->new TransientLiquidBlock(PuppyCraftFluids.Youth.get(),
             BlockBehaviour.Properties.ofFullCopy(Blocks.WATER).setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(), Identifier.fromNamespaceAndPath(Constants.MOD_ID, "youth")))));
-    public static final BlockHelper<BedBlock> Crib = createHelper("crib", ()->new CribBlock(DyeColor.WHITE, ezKey("crib")));
+    public static final BlockHelper<BedBlock> WhiteCrib = createHelper("white_crib", ()->new CribBlock(DyeColor.WHITE, ezKey("white_crib")));
 
     private static BlockBehaviour.Properties ezKey(String name){
         return BlockBehaviour.Properties.of().setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(), Identifier.fromNamespaceAndPath(Constants.MOD_ID, name)));

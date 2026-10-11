@@ -74,9 +74,9 @@ public class PuppyCraftCommonRecipes extends RecipeProvider {
                         .define('t', Items.DRIED_KELP).define('d', Items.BLUE_DYE).define('b', Items.GLASS_BOTTLE)
                         .unlockedBy(getHasName(Items.GLASS_BOTTLE), has(Items.GLASS_BOTTLE)).save(output, Constants.MOD_ID + ":babybottle");
 
-        ShapedRecipeBuilder.shaped(registries.lookupOrThrow(Registries.ITEM), RecipeCategory.DECORATIONS, PuppyCraftItems.Crib.get())
+        ShapedRecipeBuilder.shaped(registries.lookupOrThrow(Registries.ITEM), RecipeCategory.DECORATIONS, PuppyCraftItems.WhiteCrib.get())
                         .pattern("w").pattern("l")
-                        .define('w', Items.PINK_WOOL)
+                        .define('w', Items.WHITE_WOOL)
                         .define('l', Ingredient.of(registries.lookupOrThrow(BuiltInRegistries.ITEM.key()).getOrThrow(ItemTags.LOGS)))
                         .unlockedBy(getHasName(Items.PINK_WOOL), has(Items.PINK_WOOL)).save(output, Constants.MOD_ID + ":crib_crafting");
 

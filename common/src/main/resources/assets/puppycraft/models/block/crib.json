@@ -4,7 +4,6 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "puppycraft:block/cribbars",
-		"1": "minecraft:block/pink_wool",
 		"2": "minecraft:block/oak_log",
 		"particle": "puppycraft:block/cribbars"
 	},

@@ -49,7 +49,7 @@ public class PuppyCraftItems {
     public static ItemHelper<Item> SuperAbsorbentPolymer = simple("diapersap");
     public static ItemHelper<Item> WoodPulp = simple("woodpulp");
 
-    public static ItemHelper<BlockItem> Crib = block("crib", PuppyCraftBlocks.Crib);
+    public static ItemHelper<BlockItem> WhiteCrib = block("white_crib", PuppyCraftBlocks.WhiteCrib);
 
     //Diapers
     public static ItemHelper<DiaperItem> BunnyHoppsDiaper = diaper("bunnyhoppsdiaper", "bunnyhopps", DiaperFamilies.BUNNYHOPPS, DiaperCapacityMega);
