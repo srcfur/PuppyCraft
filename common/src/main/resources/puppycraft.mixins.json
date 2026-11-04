@@ -6,7 +6,8 @@
   "mixins": [
     "SleepMixin",
     "FountainOfYouthDropinMixin",
-    "ReallyStupidGamePacketHijackMixin"
+    "ReallyStupidGamePacketHijackMixin",
+    "SuperEvilSleepMixin"
   ],
   "client": [
     "DiaperBagCountMixin"

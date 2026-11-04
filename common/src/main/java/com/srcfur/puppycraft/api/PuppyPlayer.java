@@ -13,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 import java.util.Optional;
 
@@ -71,5 +72,25 @@ public abstract class PuppyPlayer {
         int inconduration = 1200;
         inconduration += (10 - getMaturity() / 1000) * 1200;
         player.addEffect(new MobEffectInstance(BadHygieneEffects.Incontinence, inconduration));
+    }
+    public BedwettingResult sleepBedwettingResult(Level level){
+        PuppyCraftAPI api = PuppyCraftCommon.API;
+        if(getHygiene().getBladderFullness() > 0.7f){
+            if(getMaturity() < api.MATURITY_TEEN)
+                return level.getRandom().nextInt(1, getMaturity() < api.MATURITY_TODDLER ? 7 : 10) > 5 ? BedwettingResult.HeavyWetter : BedwettingResult.QuietPee;
+            else
+                return BedwettingResult.FullBladderWakeUp;
+        }
+        if(getMaturity() > api.MATURITY_TEEN && getMaturity() < api.MATURITY_ADULT){
+            if(level.getRandom().nextInt(1,10) > 7){
+                return BedwettingResult.WetDream;
+            }
+        }
+        if(getMaturity() < api.MATURITY_ADULT){
+            if(level.getRandom().nextInt(1, 10) > (getMaturity() < api.MATURITY_TEEN ? 6 : 8)){
+                return getMaturity() < api.MATURITY_KID ? BedwettingResult.QuietPee : BedwettingResult.WakeupWetting;
+            }
+        }
+        return BedwettingResult.DryNight;
     }
 }
